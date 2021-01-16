@@ -1,11 +1,16 @@
 # Cloudflare Workers Catalog
 
 Explore the existing Workers projects or just look for the right tooling for your next one 🚀
-This project is built and deployed with [Cloudflare Pages](https://pages.cloudflare.com), using [Gatsby](https://www.gatsbyjs.com/) framework.
+
+This project is built with [Gatsby](https://www.gatsbyjs.com/) and deployed to [Cloudflare Pages](https://pages.cloudflare.com).
 
 ## How to add new project
 
 - Just add it to [catalog.yaml](./catalog.yaml)
+
+## Develop
+- `export GITHUB_API_TOKEN=your-gh-api-token` (public repository read)
+- `yarn develop`
 
 ## TODO
 
