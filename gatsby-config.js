@@ -57,7 +57,6 @@ module.exports = {
                 forkCount
                 stargazerCount
                 name
-                homepageUrl
                 owner {
                   login
                 }
@@ -79,6 +78,84 @@ module.exports = {
         variables: repos,
       },
     },
+    {
+      resolve: "gatsby-plugin-local-search",
+      options: {
+        // A unique name for the search index. This should be descriptive of
+        // what the index contains. This is required.
+        name: "repos",
+
+        // Set the search engine to create the index. This is required.
+        // The following engines are supported: flexsearch, lunr
+        engine: "flexsearch",
+
+        // Provide options to the engine. This is optional and only recommended
+        // for advanced users.
+        //
+        // Note: Only the flexsearch engine supports options.
+        engineOptions: "speed",
+
+        // GraphQL query used to fetch all data for the search index. This is
+        // required.
+        query: `
+          {
+            allGithubData {
+              nodes {
+                id
+                data {
+                  repository {
+                    name
+                    description
+                    forkCount
+                    stargazerCount
+                    owner {
+                      login
+                    }
+                    repositoryTopics {
+                      nodes {
+                        topic {
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+
+        // Field used as the reference value for each document.
+        // Default: 'id'.
+        ref: "id",
+
+        // List of keys to index. The values of the keys are taken from the
+        // normalizer function below.
+        // Default: all fields
+        index: ["name", "owner", "description"],
+
+        // List of keys to store and make available in your UI. The values of
+        // the keys are taken from the normalizer function below.
+        // Default: all fields
+        //store: ['id', 'path', 'title'],
+
+        // Function used to map the result from the GraphQL query. This should
+        // return an array of items to index in the form of flat objects
+        // containing properties to index. The objects must contain the `ref`
+        // field above (default: 'id'). This is required.
+        normalizer: ({ data }) =>
+          data.allGithubData.nodes.map(node => ({
+            id: node.id,
+            owner: node.data.repository.owner.login,
+            name: node.data.repository.name,
+            description: node.data.repository.description,
+            stars: node.data.repository.stargazerCount,
+            forks: node.data.repository.forkCount,
+            topics: node.data.repository.repositoryTopics.nodes,
+          })),
+      },
+    },
+    "gatsby-plugin-use-query-params",
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
