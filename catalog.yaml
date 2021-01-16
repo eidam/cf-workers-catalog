@@ -1,6 +1,12 @@
 - owner: "eidam"
   name: "cf-workers-status-page"
 
+- owner: "eidam"
+  name: "cf-workers-audit-logs"
+
+- owner: "eidam"
+  name: "cf-workers-github-releases"
+
 - owner: "cloudflare"
   name: "wrangler"
 
@@ -66,3 +72,6 @@
 
 - owner: "adaptive"
   name: "kv"
+
+- owner: "maple3142"
+  name: "GDIndex"
