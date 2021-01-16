@@ -40,13 +40,17 @@ const Layout = ({ children }) => {
             marginTop: `2rem`,
           }}
         >
-          © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()}, Built from{" "}
+          <a href="https://github.com/eidam/cf-workers-catalog">
+            Cloudflare Workers catalog
+          </a>{" "}
+          with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
           {` `}
-          and
+          and deployed to
           {` `}
-          <a href="https://pages.cloudflare.com">Cloudflare Pages</a>
+          <a href="https://pages.cloudflare.com">Cloudflare Pages</a>.
         </footer>
       </div>
     </>

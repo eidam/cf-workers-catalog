@@ -9,6 +9,7 @@ This project is built with [Gatsby](https://www.gatsbyjs.com/) and deployed to [
 - Just add it to [catalog.yaml](./catalog.yaml)
 
 ## Develop
+
 - `export GITHUB_API_TOKEN=your-gh-api-token` (public repository read)
 - `yarn develop`
 
