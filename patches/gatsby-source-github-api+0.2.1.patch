@@ -1,8 +1,8 @@
 diff --git a/node_modules/gatsby-source-github-api/gatsby-node.js b/node_modules/gatsby-source-github-api/gatsby-node.js
-index 108ed0d..e4c8507 100644
+index 108ed0d..1591f6f 100644
 --- a/node_modules/gatsby-source-github-api/gatsby-node.js
 +++ b/node_modules/gatsby-source-github-api/gatsby-node.js
-@@ -1,40 +1,49 @@
+@@ -1,40 +1,53 @@
 -const { fetchFromGithub } = require("./src/helper");
 -const crypto = require("crypto");
 -const uuid = require("uuid/v1");
@@ -44,12 +44,6 @@ index 108ed0d..e4c8507 100644
 -          // our node should have an 'application/json' MIME type, but we wish
 -          // transformers to ignore it, so we set its mediaType to text/plain for now
 -          mediaType: "text/plain"
--        }
--      });
--      resolve();
--    });
--  });
--};
 +
 +    if (!Array.isArray(variables)) {
 +      variables = [variables]
@@ -59,6 +53,15 @@ index 108ed0d..e4c8507 100644
 +
 +    for (variable of variables) {
 +      await fetchFromGithub(url, token, graphQLQuery, variable).then(result => {
++        if (result.errors || !result.data.repository) {
++          console.error(result)
++          return
+         }
+-      });
+-      resolve();
+-    });
+-  });
+-};
 +        createNode({
 +          data: result.data,
 +          id: result.id || uuid(),

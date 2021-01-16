@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "cf-workers-catalog",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A simple Catalog of Cloudflare Workers",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Adam Janiš <adam.janis@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
@@ -19,6 +19,7 @@
     "gatsby-source-filesystem": "^2.5.0",
     "gatsby-source-github-api": "^0.2.1",
     "gatsby-transformer-sharp": "^2.6.0",
+    "js-yaml": "^4.0.0",
     "material-ui-search-bar": "^1.0.0",
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0",
@@ -35,9 +36,8 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
@@ -45,12 +45,5 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "postinstall": "patch-package"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }

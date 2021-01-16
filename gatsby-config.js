@@ -1,51 +1,13 @@
-const repos = [
-  {
-    owner: "kiwicom",
-    name: "the-zoo",
-  },
-  {
-    owner: "eidam",
-    name: "cf-workers-status-page",
-  },
-  {
-    owner: "cloudflare",
-    name: "wrangler",
-  },
-  {
-    owner: "cloudflare",
-    name: "wrangler-action",
-  },
-  {
-    owner: "cherry",
-    name: "placeholders.dev",
-  },
-  {
-    owner: "wilsonzlin",
-    name: "edgesearch",
-  },
-  {
-    owner: "cloudflare",
-    name: "worker-template-router",
-  },
-  {
-    owner: "berstend",
-    name: "service-worker-router",
-  },
-  {
-    owner: "anderly",
-    name: "cloudflare-worker-routing",
-  },
-  {
-    owner: "cfworker",
-    name: "cfworker",
-  },
-]
+const fs = require("fs")
+const yaml = require("js-yaml")
+
+const repos = yaml.load(fs.readFileSync("./catalog.yaml", "utf-8"))
 
 module.exports = {
   siteMetadata: {
     title: `Cloudflare Workers catalog`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsby`,
+    description: `A simple Catalog of Cloudflare Workers GitHub projects`,
+    author: `@eidam`,
   },
   plugins: [
     {

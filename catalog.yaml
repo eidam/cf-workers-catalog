@@ -1,0 +1,29 @@
+- owner: "eidam"
+  name: "cf-workers-status-page"
+
+- owner: "cloudflare"
+  name: "wrangler"
+
+- owner: "cloudflare"
+  name: "wrangler-action"
+
+- owner: "cherry"
+  name: "placeholders.dev"
+
+- owner: "wilsonzlin"
+  name: "edgesearch"
+
+- owner: "cloudflare"
+  name: "worker-template-router"
+
+- owner: "berstend"
+  name: "service-worker-router"
+
+- owner: "anderly"
+  name: "cloudflare-worker-routing"
+
+- owner: "cfworker"
+  name: "cfworker"
+
+- owner: ""
+  name: ""
