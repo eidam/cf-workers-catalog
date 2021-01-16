@@ -25,5 +25,29 @@
 - owner: "cfworker"
   name: "cfworker"
 
-- owner: ""
-  name: ""
+- owner: "gdtool"
+  name: "cloudflare-workers-blog"
+
+- owner: "xyTom"
+  name: "Url-Shorten-Worker"
+  
+- owner: "cloudflare"
+  name: "serverless-cloudflare-workers"
+  
+- owner: "cloudflare"
+  name: "workers-graphql-server"
+  
+- owner: "spencerwooo"
+  name: "onedrive-cf-index"
+  
+- owner: "flareact"
+  name: "flareact"
+  
+- owner: "cloudflare-apps"
+  name: "create-cloudflare-app"
+  
+- owner: "cloudflare"
+  name: "workers-types"
+  
+- owner: "signalnerve"
+  name: "cloudflare-workers-todos"

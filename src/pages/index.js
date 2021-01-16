@@ -34,17 +34,17 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Cloudflare Workers catalog" />
-      <SearchBar
-        value={query || undefined}
-        onChange={newValue => setQuery(newValue)}
-      />
-      <br />
+
       <GridList
         cellHeight="auto"
         cols={1}
         spacing={8}
         style={{ width: "100%", marginBottom: "1rem" }}
       >
+        <SearchBar
+          value={query || undefined}
+          onChange={newValue => setQuery(newValue)}
+        />
         {Object.keys(items).map(key => {
           const item = items[key]
           return (
