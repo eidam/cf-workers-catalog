@@ -1,37 +1,57 @@
 import React from "react"
 
-import {
-    Box,
-    Link,
-    Paper,
-    Typography,
-    Chip,
-    IconButton,
-} from '@material-ui/core'
+import { Box, Link, Paper, Typography, Chip } from "@material-ui/core"
 
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
+import StarIcon from "@material-ui/icons/Star"
 
-const Item = ({ owner, name, description, forks }) => {
-    return (
-        <Link href="/details" underline="none">
-            <Paper variant="outlined">
-                <Box padding={2} display="flex" flexDirection="row">
-                    <Box mx={2} display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" width="100%">
-                        <Box>
-                            <Typography>{name}</Typography>
-                            <Typography color="textSecondary" variant="subtitle2">{description}</Typography>
-                        </Box>
-                        <Box display="flex" flexDirection="row" alignItems="center">
-                            <Chip label="monitoring" color="primary" />
-                            <IconButton color="default" size="small" component="span" style={{ marginLeft: "1rem" }}>
-                                <ChevronRightIcon fontSize="small" />
-                            </IconButton>
-                        </Box>
-                    </Box>
-                </Box>
-            </Paper>
-        </Link >
-    )
+const Item = ({ owner, name, description, forks, stars, topics }) => {
+  return (
+    <Link
+      href={`https://github.com/${owner}/${name}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      underline="none"
+    >
+      <Paper variant="outlined">
+        <Box padding={2} display="flex" flexDirection="row">
+          <Box
+            mx={2}
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            width="100%"
+          >
+            <Box>
+              <Typography>
+                {owner}/{name}
+              </Typography>
+              <Typography color="textSecondary" variant="subtitle2">
+                {description}
+              </Typography>
+            </Box>
+            <Box flexDirection="row" alignItems="center">
+              <Typography variant="subtitle2" align="right">
+                {stars}
+                <StarIcon fontSize="inherit" />
+              </Typography>
+              <Typography align="right">
+                {topics.map(topic => {
+                  return (
+                    <Chip
+                      size="small"
+                      label={topic.topic.name}
+                      color="primary"
+                    />
+                  )
+                })}
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
+      </Paper>
+    </Link>
+  )
 }
 
 export default Item

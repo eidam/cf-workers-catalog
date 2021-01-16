@@ -7,24 +7,21 @@ const repos = [
     owner: "eidam",
     name: "cf-workers-status-page",
   },
+  {
+    owner: "cloudflare",
+    name: "wrangler",
+  },
+  {
+    owner: "cloudflare",
+    name: "wrangler-action",
+  },
 ]
-
-function generateQuery() {
-  let query = ""
-  for (repo of repos) {
-    query += repoQuery(repo.owner, repo.name)
-  }
-  console.log(query)
-
-  return `{${query}}`
-}
-
 
 module.exports = {
   siteMetadata: {
-    title: `Cloudflare workers catalog`,
+    title: `Cloudflare Workers catalog`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `@gatsby`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -58,12 +55,13 @@ module.exports = {
               repository(owner: $owner, name: $name) {
                 description
                 forkCount
+                stargazerCount
                 name
                 homepageUrl
                 owner {
                   login
                 }
-                repositoryTopics(first:100) {
+                repositoryTopics(first:2) {
                   nodes {
                     topic {
                       name
@@ -78,18 +76,9 @@ module.exports = {
               }
             }
           `,
-        variables: [
-          {
-            owner: "eidam",
-            name: "cf-workers-status-page"
-          },
-          {
-            owner: "kiwicom",
-            name: "the-zoo"
-          }
-        ]
-      }
-    }
+        variables: repos,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import CssBaseline from "@material-ui/core/CssBaseline"
 
 import Header from "./header"
 
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <CssBaseline />
       <div
         style={{
           margin: `0 auto`,
