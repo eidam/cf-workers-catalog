@@ -9,19 +9,24 @@
     "@material-ui/icons": "^4.11.2",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
+    "gatsby-plugin-local-search": "^2.0.0",
     "gatsby-plugin-manifest": "^2.6.1",
     "gatsby-plugin-offline": "^3.4.0",
     "gatsby-plugin-react-helmet": "^3.4.0",
     "gatsby-plugin-sharp": "^2.8.0",
+    "gatsby-plugin-use-query-params": "^1.0.1",
     "gatsby-source-filesystem": "^2.5.0",
     "gatsby-source-github-api": "^0.2.1",
     "gatsby-transformer-sharp": "^2.6.0",
+    "material-ui-search-bar": "^1.0.0",
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-use-flexsearch": "^0.1.1",
+    "use-query-params": "^1.1.9"
   },
   "devDependencies": {
     "prettier": "2.2.1"

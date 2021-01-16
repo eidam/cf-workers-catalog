@@ -43,6 +43,10 @@ const Layout = ({ children }) => {
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
+          {` `}
+          and
+          {` `}
+          <a href="https://pages.cloudflare.com">Cloudflare Pages</a>
         </footer>
       </div>
     </>
