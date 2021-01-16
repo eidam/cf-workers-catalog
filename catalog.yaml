@@ -19,6 +19,9 @@
 - owner: "berstend"
   name: "service-worker-router"
 
+- owner: "berstend"
+  name: "tiny-request-router"
+
 - owner: "anderly"
   name: "cloudflare-worker-routing"
 
@@ -51,3 +54,15 @@
   
 - owner: "signalnerve"
   name: "cloudflare-workers-todos"
+
+- owner: "timcole"
+  name: "thumb.yt"
+
+- owner: "p-j"
+  name: "eapi"
+
+- owner: "koj-co"
+  name: "workers-template"
+
+- owner: "adaptive"
+  name: "kv"
