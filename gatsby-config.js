@@ -15,6 +15,30 @@ const repos = [
     owner: "cloudflare",
     name: "wrangler-action",
   },
+  {
+    owner: "cherry",
+    name: "placeholders.dev",
+  },
+  {
+    owner: "wilsonzlin",
+    name: "edgesearch",
+  },
+  {
+    owner: "cloudflare",
+    name: "worker-template-router",
+  },
+  {
+    owner: "berstend",
+    name: "service-worker-router",
+  },
+  {
+    owner: "anderly",
+    name: "cloudflare-worker-routing",
+  },
+  {
+    owner: "cfworker",
+    name: "cfworker",
+  },
 ]
 
 module.exports = {
@@ -24,6 +48,15 @@ module.exports = {
     author: `@gatsby`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-material-ui",
+      // If you want to use styled components you should change the injection order.
+      options: {
+        // stylesProvider: {
+        //   injectFirst: true,
+        // },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
