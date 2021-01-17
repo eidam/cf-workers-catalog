@@ -75,3 +75,15 @@
 
 - owner: "maple3142"
   name: "GDIndex"
+
+- owner: "sagi"
+  name: "workers-jwt"
+
+- owner: "sagi"
+  name: "workers-pubsub"
+
+- owner: "sagi"
+  name: "workers-kv"
+
+- owner: "sagi"
+  name: "workers-slack"
