@@ -21,9 +21,11 @@ export const pageQuery = graphql`
 
 const IndexPage = ({ data }) => {
   const [query, setQuery] = useQueryParam("search", StringParam)
+  // normalize search input
+  const search = query?.trim().replace(/[^a-zA-Z ]/g, "")
   // fuzzy ~1 + wildcard at the end, should cover most cases
-  const search = query?.trim()
   const lunrSearch = search ? `${search}~1 ${search.split(" ").pop()}*` : "*"
+
   const results = useLunr(
     lunrSearch,
     data.localSearchRepos.index,
