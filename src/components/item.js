@@ -36,15 +36,10 @@ const Item = ({ owner, name, description, forks, stars, topics }) => {
                 <StarIcon fontSize="inherit" />
               </Typography>
               <Typography align="right">
-                {topics.map(topic => {
-                  return (
-                    <Chip
-                      size="small"
-                      label={topic.topic.name}
-                      color="primary"
-                    />
-                  )
-                })}
+                {topics &&
+                  topics.map(topic => {
+                    return <Chip size="small" label={topic} color="primary" />
+                  })}
               </Typography>
             </Box>
           </Box>

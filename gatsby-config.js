@@ -84,13 +84,13 @@ module.exports = {
 
         // Set the search engine to create the index. This is required.
         // The following engines are supported: flexsearch, lunr
-        engine: "flexsearch",
+        engine: "lunr",
 
         // Provide options to the engine. This is optional and only recommended
         // for advanced users.
         //
         // Note: Only the flexsearch engine supports options.
-        engineOptions: "speed",
+        //engineOptions: "speed",
 
         // GraphQL query used to fetch all data for the search index. This is
         // required.
@@ -148,7 +148,9 @@ module.exports = {
             description: node.data.repository.description,
             stars: node.data.repository.stargazerCount,
             forks: node.data.repository.forkCount,
-            topics: node.data.repository.repositoryTopics.nodes,
+            topics: node.data.repository.repositoryTopics.nodes.map(
+              x => x.topic.name
+            ),
           })),
       },
     },

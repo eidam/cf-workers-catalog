@@ -1,5 +1,5 @@
 import React from "react"
-import { useFlexSearch } from "react-use-flexsearch"
+import { useLunr } from "react-lunr"
 import { graphql } from "gatsby"
 import { GridList, GridListTile } from "@material-ui/core"
 import { useQueryParam, StringParam } from "use-query-params"
@@ -21,15 +21,14 @@ export const pageQuery = graphql`
 
 const IndexPage = ({ data }) => {
   const [query, setQuery] = useQueryParam("search", StringParam)
-  const results = useFlexSearch(
-    query,
+  // fuzzy ~1 + wildcard at the end, should cover most cases
+  const search = query?.trim()
+  const lunrSearch = search ? `${search}~1 ${search.split(" ").pop()}*` : "*"
+  const results = useLunr(
+    lunrSearch,
     data.localSearchRepos.index,
-    data.localSearchRepos.store,
-    { suggest: true }
+    data.localSearchRepos.store
   )
-
-  const items =
-    query && query.length > 1 ? results : data.localSearchRepos.store
 
   return (
     <Layout>
@@ -45,8 +44,8 @@ const IndexPage = ({ data }) => {
           value={query || undefined}
           onChange={newValue => setQuery(newValue)}
         />
-        {Object.keys(items).map(key => {
-          const item = items[key]
+        {Object.keys(results).map(key => {
+          const item = results[key]
           return (
             <GridListTile key={item.id} cols={1}>
               <Item
