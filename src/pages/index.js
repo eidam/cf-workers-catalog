@@ -32,6 +32,8 @@ const IndexPage = ({ data }) => {
     data.localSearchRepos.store
   )
 
+  const items = query ? results : data.localSearchRepos.store
+
   return (
     <Layout>
       <SEO title="Cloudflare Workers catalog" />
@@ -46,8 +48,8 @@ const IndexPage = ({ data }) => {
           value={query || undefined}
           onChange={newValue => setQuery(newValue)}
         />
-        {Object.keys(results).map(key => {
-          const item = results[key]
+        {Object.keys(items).map(key => {
+          const item = items[key]
           return (
             <GridListTile key={item.id} cols={1}>
               <Item
