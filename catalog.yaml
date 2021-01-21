@@ -87,3 +87,6 @@
 
 - owner: "sagi"
   name: "workers-slack"
+  
+- owner: "bradyjoslin"
+  name: "encrypt-workers-kv"
